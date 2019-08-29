@@ -5,7 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to left,rgba(7, 27, 82, 1) 0%,rgba(0, 128, 128, 1) 100%);
 }
+
+/* Not using the class below, added it directly to the card.component style
+Just to be sure, the font was not imported on the CSS of the card. Probably a bad idea
+to not include it when creating a component. */
+/* .card-list {
+  font-family: 'Kalam', cursive;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

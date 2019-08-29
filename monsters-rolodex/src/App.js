@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component'
 import './App.css';
 
 class App extends Component {
@@ -9,8 +10,8 @@ class App extends Component {
     this.state = {
       /* Adding unique ids to help React for changes. Using the ids, react can change only
       one element if needed, and not all of them */
-      monsters: [
-      ]
+      monsters: [],
+      searchField: ''
     };
   }
 
@@ -27,13 +28,28 @@ class App extends Component {
     this.setState({ monsters: json })
   }
 
+  handleChange = e => {
+    this.setState({ searchField: e.target.value })
+  }
+
   render() {
+    // Monsters search
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter(monster =>
+      monster.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+      )
+
     return (
-      <div className="App">
+      <div className='App'>
+      <h1>Monsters Rolodex</h1>
+        <SearchBox
+          placeholder='search monsters'
+          handleChange={this.handleChange}
+        />
         {/* <header className="App-header">
           Monsters Rolodex
         </header> */}
-        <CardList monsters = {this.state.monsters} />
+        <CardList monsters = {filteredMonsters} />
 
       </div>
     );
