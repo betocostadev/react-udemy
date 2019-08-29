@@ -33,12 +33,7 @@ class App extends Component {
         {/* <header className="App-header">
           Monsters Rolodex
         </header> */}
-        <CardList>
-          { this.state.monsters.map(monster => (
-              <h1 key={monster.id}> {monster.name} </h1>
-          ))}
-        </CardList>
-
+        <CardList monsters = {this.state.monsters} />
 
       </div>
     );
