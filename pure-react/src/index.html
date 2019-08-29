@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css">
+  <title>Pure React</title>
+</head>
+<body>
+  <div id="root">React not rendered</div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>
+    const Person = props => {
+      return React.createElement("section", {},[
+        React.createElement("h2", {}, props.name),
+        React.createElement("p", {}, props.occupation)
+      ])
+    }
+
+    class App extends React.Component {
+      render() {
+        return React.createElement(
+          "div",
+          {class: "container"},
+          [
+            React.createElement("h1", {}, 'React is rendered!'),
+            React.createElement(Person, { name: 'Yihua', occupation: 'Developer and Teacher' }),
+            React.createElement(Person, { name: 'Beto', occupation: 'Student and Developer'}),
+          ]
+        );
+      }
+    }
+
+    // Using the app to be rendered below. Deactivated, using it as a class component.
+    /* const App = () => {
+      return React.createElement(
+        "div",
+        {class: "container"},
+        [
+          React.createElement("h1", {}, 'React is rendered!'),
+          React.createElement(Person, { name: 'Yihua', occupation: 'Developer and Teacher' }),
+          React.createElement(Person, { name: 'Beto', occupation: 'Student and Developer'}),
+        ]
+      );
+    }; */
+
+    ReactDOM.render(React.createElement(App), document.getElementById("root"));
+  </script>
+</body>
+</html>
