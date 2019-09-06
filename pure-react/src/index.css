@@ -1,11 +1,29 @@
+:root {
+  --colReact: #61dafb;
+  --coldarkgray: #333;
+}
+
+html {
+  box-sizing: border-box;
+  /* font-size: 62.5%; */
+  font-family: 'Open Sans', sans-serif;
+  /* font-weight: 400; */
+}
+
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
+
 body {
-  background: #000000;
+  background: var(--coldarkgray);
 }
 
 .container {
-  width: calc(100% - 4rem);
+  width: 100%;
   margin: 0;
-  background: #61dafb;
+  background: var(--colReact);
   color: white;
   text-align: center;
   padding: 2rem;
